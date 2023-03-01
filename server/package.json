@@ -11,10 +11,12 @@
   "author": "",
   "license": "MIT License",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.11.6",
+    "@apollo/server": "^4.4.0",
     "bcrypt": "^5.0.0",
-    "jsonwebtoken": "^8.5.1"
+    "express": "^4.17.1",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

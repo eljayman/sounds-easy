@@ -10,9 +10,23 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "eslint": "^8.30.0",
+    "prettier": "^2.8.1"
+  },
   "author": "",
   "license": "MIT License",
   "devDependencies": {
     "concurrently": "^5.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eljayman/sounds-easy.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/eljayman/sounds-easy/issues"
+  },
+  "homepage": "https://github.com/eljayman/sounds-easy#readme"
 }
