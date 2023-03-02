@@ -17,4 +17,4 @@ soundboardSchema.virtual('soundCount').get(function () {
   // compile the soundboard schema into the model
 const Soundboard = model('Soundboard', soundboardSchema);
 
-model.exports = Soundboard;
+module.exports = Soundboard;
