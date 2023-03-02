@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
+import Auth from '../Auth/Auth';
+import Landing from '../Landing/Landing';
+import Dashboard from '../Dashboard/Dashboard';
+import Library from '../Library/Library';
+
 import './App.css'; // Import App.css stylesheet
 
 function App() {
@@ -44,15 +49,34 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Route for landing page */}
-
-        {/* Route for login form */}
-
-        {/* Route for signup form */}
-
-        {/* Route for user dashboard */}
-
-        {/* Route for sound library */}
+        <Route
+          exact
+          path="/"
+          element={<Landing />}
+          user={user}
+          handleLogout={handleLogout}
+        />
+        <Route
+          path="/login"
+          element={<Auth />}
+          formType="login"
+          handleSubmit={handleLogin}
+          error={error}
+        />
+        <Route
+          path="/signup"
+          element={<Auth />}
+          formType="signup"
+          handleSubmit={handleSignup}
+          error={error}
+        />
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+          user={user}
+          handleLogout={handleLogout}
+        />
+        <Route path="/library" element={<Library />} user={user} />
       </Routes>
     </Router>
   );
