@@ -7,7 +7,6 @@ import Landing from '../Landing';
 import Dashboard from '../Dashboard';
 import Library from '../Library';
 import Soundboard from '../Soundboard';
-import Sound from '../Sound';
 
 // Audio files storage
 import testAudio from '../Sound/test-sound.wav';
@@ -117,7 +116,12 @@ function App() {
           user={user}
           selectedSounds={selectedSounds}
         />
-        <Route path="/sound" element={<Sound />}/>
+        <Route
+          path="/soundboard"
+          element={<Soundboard />}
+          sound={sounds}
+          onSoundClick={handleAddToLibrary}
+        />
       </Routes>
     </Router>
   );
