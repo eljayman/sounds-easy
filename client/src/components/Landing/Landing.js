@@ -7,7 +7,8 @@ const Landing = () => {
       <h1>Welcome to Sounds Easy!</h1>
       <p>
         Sounds Easy is a platform where you can listen to and add sounds to your
-        own personal soundboard library. Create a profile to get started.
+        own personal soundboard library. Create a profile to get started, or
+        view our sound library.
       </p>
       <div>
         <Link to="/signup">
@@ -17,7 +18,7 @@ const Landing = () => {
           <button>Login</button>
         </Link>
         <Link to="/soundboard">
-          <button>Sound test</button>
+          <button>Sound Library</button>
         </Link>
       </div>
     </div>

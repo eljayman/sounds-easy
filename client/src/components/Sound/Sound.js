@@ -10,6 +10,7 @@ function Sound(sounds) {
   return (
     <li className="sound" onClick={handleClick}>
       <img src={sounds.image} alt={sounds.title} width={'160px'} />
+      <p>{sounds.title}</p>
     </li>
   );
 }

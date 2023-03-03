@@ -10,6 +10,7 @@ function Soundboard(soundProps) {
 
   return (
     <div className="soundboard">
+      <h2>Soundboard</h2>
       <ul style={{ listStyleType: 'none' }}>
         {soundProps.sounds.map((sound) => (
           <Sound
