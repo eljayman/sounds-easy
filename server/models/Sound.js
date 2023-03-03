@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 // model is name for and location of sound
 const soundSchema = new Schema({
-    soundname: {
+    name: {
         type: String,
         unique: true,
         required: true,
