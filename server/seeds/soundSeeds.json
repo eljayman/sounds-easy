@@ -1,0 +1,62 @@
+[
+    {"name":"Rolling Thunder" ,
+    "url":"https://actions.google.com/sounds/v1/weather/rolling_thunder.ogg"
+},
+    {"name": "Thunder Crack",
+    "url": "https://actions.google.com/sounds/v1/weather/thunder_crack.ogg"
+},
+    {"name": "Auto Bullets Flyby - Short",
+    "url":"https://actions.google.com/sounds/v1/weapons/auto_bullets_flyby_short.ogg"
+},
+    {"name": "Big Explosion Cut Off",
+    "url": "https://actions.google.com/sounds/v1/weapons/big_explosion_cut_off.ogg"
+},
+    {"name": "Gunfire",
+    "url":"https://actions.google.com/sounds/v1/weapons/gunfire.ogg"
+},
+    {"name":"Car Door - Open/Shut" ,
+    "url":"https://actions.google.com/sounds/v1/transportation/car_door_open_shut.ogg"
+},
+    {"name": "Space Craft Passing Pulse Stutter",
+    "url":"https://actions.google.com/sounds/v1/transportation/space_craft_passing_pulse_stutter.ogg"
+},
+    {"name": "Wet Tire Drive By",
+    "url":"https://actions.google.com/sounds/v1/transportation/wet_tire_drive_by.ogg"
+},
+    {"name": "Ratchet Wrench Slow",
+    "url":"https://actions.google.com/sounds/v1/tools/ratchet_wrench_slow.ogg"
+},
+    {"name": "Cartoon Boing",
+    "url":"https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg"
+},
+    {"name": "Clang and wobble",
+    "url": "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"
+},
+    {"name": "Fart Long through Door",
+    "url":"https://actions.google.com/sounds/v1/cartoon/fart_long_through_door.ogg"
+},
+    {"name": "Fart Toot",
+    "url":"https://actions.google.com/sounds/v1/cartoon/fart_toot.ogg"
+},
+    {"name": "Long Fart",
+    "url": "https://actions.google.com/sounds/v1/cartoon/long_fart.ogg"
+},
+    {"name": "Rubber Duck Squeak Series",
+    "url": "https://actions.google.com/sounds/v1/cartoon/rubber_duck_squeak_series.ogg"
+},
+    {"name": "Rubber Squeaking",
+    "url": "https://actions.google.com/sounds/v1/cartoon/rubber_squeaking.ogg"
+},
+    {"name": "Slide Whistle to Drum",
+    "url": "https://actions.google.com/sounds/v1/cartoon/slide_whistle_to_drum.ogg"
+},
+    {"name": "Tympani Bing",
+    "url":"https://actions.google.com/sounds/v1/cartoon/tympani_bing.ogg"
+},
+    {"name": "Vomiting Close",
+    "url":"https://actions.google.com/sounds/v1/cartoon/vomiting_close.ogg"
+},
+    {"name":"Wet Fart",
+    "url":"https://actions.google.com/sounds/v1/cartoon/wet_fart.ogg"
+}
+]
