@@ -1,7 +1,18 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Soundboard = require('./Soundboard');
 // require Soundboard model for reference
+
+const soundboardSchema = new Schema(
+  {
+      sounds: [{type: Schema.Types.ObjectId, ref: 'Sound'}],
+  }
+  
+)
+
+// counts the number of sounds in the soundboard
+soundboardSchema.virtual('soundCount').get(function () {
+  return this.sounds.length;
+});
 
 // user schema defines shape of object to be stored
 const userSchema = new Schema({
@@ -27,12 +38,7 @@ const userSchema = new Schema({
     minlength: 5,
   },
   // array of soundboards for the user
-  soundboards: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Soundboard',
-    },
-  ],
+  soundboard: soundboardSchema  
 });
 
 // middleware to hash password any time the user is created or updated
@@ -44,11 +50,6 @@ userSchema.pre('save', async function (next) {
 
   next();
 });
-
-// middleware deletes all soundboards a user created when it is deleted
-userSchema.post('findOneAndDelete', function (user) {
-    Soundboard.deleteMany({ username: user.username }).exec();
-  });
 
   // method on the schema to check the password
 userSchema.methods.isCorrectPassword = async function (password) {
