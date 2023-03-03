@@ -16,6 +16,9 @@ const Landing = () => {
         <Link to="/login">
           <button>Login</button>
         </Link>
+        <Link to="/sound">
+          <button>Sound test</button>
+        </Link>
       </div>
     </div>
   );

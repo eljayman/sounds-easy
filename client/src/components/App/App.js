@@ -6,6 +6,7 @@ import Auth from '../Auth/Auth';
 import Landing from '../Landing/Landing';
 import Dashboard from '../Dashboard/Dashboard';
 import Library from '../Library/Library';
+import Sound from '../Sound/Sound';
 
 import './App.css'; // Import App.css stylesheet
 
@@ -77,6 +78,7 @@ function App() {
           handleLogout={handleLogout}
         />
         <Route path="/library" element={<Library />} user={user} />
+        <Route path="/sound" element={<Sound />} />
       </Routes>
     </Router>
   );
