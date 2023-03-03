@@ -9,7 +9,7 @@ import Library from '../Library';
 import Soundboard from '../Soundboard';
 
 // Audio files storage
-import testAudio from '../Sound/test-sound.wav';
+import testAudio1 from '../Sound/testAudio1.wav';
 import testAudio2 from '../Sound/testAudio2.wav';
 
 import './App.css'; // Import App.css stylesheet
@@ -25,7 +25,7 @@ function App() {
       id: 1,
       image:
         'https://www.freepnglogos.com/uploads/play-button-png/circular-play-button-svg-png-icon-download-onlinewebfontsm-30.png',
-      file: testAudio,
+      file: testAudio1,
       title: 'Sound 1',
     },
     {
