@@ -1,21 +1,28 @@
-import React from 'react';
-import Sound from '../Sound/Sound';
+import React, { useState } from 'react';
+import Sound from '../Sound';
 
-const Soundboard = () => {
-  const sounds = [
-    { id: 1, soundFile: '/sounds/sound1.mp3' },
-    { id: 2, soundFile: '/sounds/sound2.mp3' },
-    { id: 3, soundFile: '/sounds/sound3.mp3' },
-    // add more sounds as needed
-  ];
+function Soundboard(soundProps) {
+  const [selectedSounds, setSelectedSounds] = useState([]);
+
+  const handleSoundClick = (sound) => {
+    setSelectedSounds([...selectedSounds, sound]);
+  };
 
   return (
-    <div>
-      {sounds.map((sound) => (
-        <Sound key={sound.id} soundId={sound.id} audioFile={sound.soundFile} />
-      ))}
+    <div className="soundboard">
+      <ul style={{ listStyleType: 'none' }}>
+        {soundProps.sounds.map((sound) => (
+          <Sound
+            key={sound.id}
+            image={sound.image}
+            file={sound.file}
+            title={sound.title}
+            onClick={() => handleSoundClick(sound)} //NEEDS CHANGE
+          />
+        ))}
+      </ul>
     </div>
   );
-};
+}
 
 export default Soundboard;

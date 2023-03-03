@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
-import Auth from '../Auth/Auth';
-import Landing from '../Landing/Landing';
-import Dashboard from '../Dashboard/Dashboard';
-import Library from '../Library/Library';
-import Sound from '../Sound/Sound';
+import Login from '../Login';
+import Landing from '../Landing';
+import Dashboard from '../Dashboard';
+import Library from '../Library';
+import Soundboard from '../Soundboard';
+import Sound from '../Sound';
+
+// Audio files storage
+import testAudio from '../Sound/test-sound.wav';
+import testAudio2 from '../Sound/testAudio2.wav';
 
 import './App.css'; // Import App.css stylesheet
 
@@ -14,6 +19,24 @@ function App() {
   // Declare state variables for user and error messages
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedSounds, setSelectedSounds] = useState([]);
+  // Set a state variable array for sounds
+  const [sounds] = useState([
+    {
+      id: 1,
+      image:
+        'https://www.freepnglogos.com/uploads/play-button-png/circular-play-button-svg-png-icon-download-onlinewebfontsm-30.png',
+      file: testAudio,
+      title: 'Sound 1',
+    },
+    {
+      id: 2,
+      image:
+        'https://www.freepnglogos.com/uploads/play-button-png/circular-play-button-svg-png-icon-download-onlinewebfontsm-30.png',
+      file: testAudio2,
+      title: 'Sound 2',
+    },
+  ]);
 
   // Use useEffect to fetch user data from server on mount
   useEffect(() => {
@@ -47,7 +70,17 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  // Define handler function for adding a sound to the library
+  const handleAddToLibrary = (sound) => {
+    setSelectedSounds([...selectedSounds, sound]);
+  };
+
   return (
+    // <div className="App">
+    //   <Soundboard sounds={sounds} onSoundClick={handleAddToLibrary} />
+    //   <Library selectedSounds={selectedSounds} />
+    // </div>
+
     <Router>
       <Routes>
         <Route
@@ -59,14 +92,14 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Auth />}
+          element={<Login />}
           formType="login"
           handleSubmit={handleLogin}
           error={error}
         />
         <Route
           path="/signup"
-          element={<Auth />}
+          element={<Login />}
           formType="signup"
           handleSubmit={handleSignup}
           error={error}
@@ -76,9 +109,15 @@ function App() {
           element={<Dashboard />}
           user={user}
           handleLogout={handleLogout}
+          handleAddToLibrary={handleAddToLibrary}
         />
-        <Route path="/library" element={<Library />} user={user} />
-        <Route path="/sound" element={<Sound />} />
+        <Route
+          path="/library"
+          element={<Library />}
+          user={user}
+          selectedSounds={selectedSounds}
+        />
+        <Route path="/sound" element={<Sound />}/>
       </Routes>
     </Router>
   );
