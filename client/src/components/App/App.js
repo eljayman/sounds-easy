@@ -85,42 +85,43 @@ function App() {
         <Route
           exact
           path="/"
-          element={<Landing />}
-          user={user}
-          handleLogout={handleLogout}
+          element={<Landing user={user} handleLogout={handleLogout} />}
         />
         <Route
           path="/login"
-          element={<Login />}
-          formType="login"
-          handleSubmit={handleLogin}
-          error={error}
+          element={
+            <Login formType="login" handleSubmit={handleLogin} error={error} />
+          }
         />
         <Route
           path="/signup"
-          element={<Login />}
-          formType="signup"
-          handleSubmit={handleSignup}
-          error={error}
+          element={
+            <Login
+              formType="signup"
+              handleSubmit={handleSignup}
+              error={error}
+            />
+          }
         />
         <Route
           path="/dashboard"
-          element={<Dashboard />}
-          user={user}
-          handleLogout={handleLogout}
-          handleAddToLibrary={handleAddToLibrary}
+          element={
+            <Dashboard
+              user={user}
+              handleLogout={handleLogout}
+              handleAddToLibrary={handleAddToLibrary}
+            />
+          }
         />
         <Route
           path="/library"
-          element={<Library />}
-          user={user}
-          selectedSounds={selectedSounds}
+          element={<Library user={user} selectedSounds={selectedSounds} />}
         />
         <Route
           path="/soundboard"
-          element={<Soundboard />}
-          sound={sounds}
-          onSoundClick={handleAddToLibrary}
+          element={
+            <Soundboard sounds={sounds} onSoundClick={handleAddToLibrary} />
+          }
         />
       </Routes>
     </Router>

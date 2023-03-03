@@ -16,7 +16,7 @@ const Landing = () => {
         <Link to="/login">
           <button>Login</button>
         </Link>
-        <Link to="/sound">
+        <Link to="/soundboard">
           <button>Sound test</button>
         </Link>
       </div>
