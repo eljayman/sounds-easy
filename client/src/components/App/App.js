@@ -10,7 +10,6 @@ import Soundboard from '../Soundboard';
 
 // Audio files storage
 import testAudio1 from '../Sound/testAudio1.wav';
-import testAudio2 from '../Sound/testAudio2.wav';
 
 import './App.css'; // Import App.css stylesheet
 
@@ -32,7 +31,7 @@ function App() {
       id: 2,
       image:
         'https://www.freepnglogos.com/uploads/play-button-png/circular-play-button-svg-png-icon-download-onlinewebfontsm-30.png',
-      file: testAudio2,
+      file: 'https://actions.google.com/sounds/v1/foley/aluminum_can_open.ogg',
       title: 'Sound 2',
     },
   ]);
