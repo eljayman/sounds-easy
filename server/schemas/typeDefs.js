@@ -32,7 +32,7 @@ const typeDefs = gql`
     removeUser: User
     login(email: String!, password: String!): Auth
     addSoundToBoard(soundName: String!, url: String!): User
-    removeSoundFromBoard(soundName: String!): User
+    removeSoundFromBoard(id: ID!): User
   }
 `;
 

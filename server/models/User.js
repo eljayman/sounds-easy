@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, SchemaType } = require('mongoose');
 const bcrypt = require('bcrypt');
 // require Soundboard model for reference
 
@@ -31,14 +31,14 @@ const userSchema = new Schema({
       soundName: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
+        unique: true,
       },
       url: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
+        unique: true,
       },
     },
   ],

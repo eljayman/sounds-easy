@@ -5,15 +5,9 @@ const soundSeeds = require('./soundSeeds.json');
 
 db.once('open', async () => {
   try {
-    await Sound.deleteMany({});
-    await User.deleteMany({});
-
     await User.create(userSeeds);
     await Sound.create(soundSeeds);
-
-    
-    }
-   catch (err) {
+  } catch (err) {
     console.error(err);
     process.exit(1);
   }
