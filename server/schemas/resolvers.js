@@ -52,30 +52,32 @@ const resolvers = {
 
       return { token, user };
     },
-    addSoundToBoard: async (parent, { soundId }, context) => {
+    addSoundToBoard: async (parent, { soundName, url }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $addToSet: {
-              soundboard: { soundId },
+              soundboard: { soundName, url },
             },
-          }
+          },
+          { new: true }
         );
       }
       throw new AuthenticationError(
         'You need to be logged in to add to a soundboard!'
       );
     },
-    removeSoundFromBoard: async (parent, { soundId }, context) => {
+    removeSoundFromBoard: async (parent, { soundName }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $pull: {
-              soundboard: { soundId },
+              soundboard: { soundName },
             },
-          }
+          },
+          { new: true }
         );
       }
       throw new AuthenticationError('You need to be logged in to do that!');
