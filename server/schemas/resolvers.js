@@ -68,13 +68,13 @@ const resolvers = {
         'You need to be logged in to add to a soundboard!'
       );
     },
-    removeSoundFromBoard: async (parent, { soundName }, context) => {
+    removeSoundFromBoard: async (parent, { id }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $pull: {
-              soundboard: { soundName },
+              soundboard: { _id: id },
             },
           },
           { new: true }

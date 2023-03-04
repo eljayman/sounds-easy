@@ -1,27 +1,32 @@
 [
-    {
-        "username": "Leland",
-        "email": "leland@mail.com",
-        "password": "password1234"
-    },
-    {
-        "username": "Ethan",
-        "email": "ethan@mail.com",
-        "password": "password1234"
-    },
-    {
-        "username": "Luka",
-        "email": "luka@mail.com",
-        "password": "password1234"
-    },
-    {
-        "username": "Olive",
-        "email": "olive@mail.com",
-        "password": "password1234"
-    },
-    {
-        "username": "Wilbur",
-        "email": "wilbur@mail.com",
-        "password": "password1234"
-    }
+  {
+    "username": "Leland",
+    "email": "leland@mail.com",
+    "password": "password1234",
+    "soundboard": []
+  },
+  {
+    "username": "Ethan",
+    "email": "ethan@mail.com",
+    "password": "password1234",
+    "soundboard": []
+  },
+  {
+    "username": "Luka",
+    "email": "luka@mail.com",
+    "password": "password1234",
+    "soundboard": []
+  },
+  {
+    "username": "Olive",
+    "email": "olive@mail.com",
+    "password": "password1234",
+    "soundboard": []
+  },
+  {
+    "username": "Wilbur",
+    "email": "wilbur@mail.com",
+    "password": "password1234",
+    "soundboard": []
+  }
 ]
