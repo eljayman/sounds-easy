@@ -1,5 +1,6 @@
 const { Schema, model, SchemaType } = require('mongoose');
 const bcrypt = require('bcrypt');
+const Sound = require('./Sound');
 // require Soundboard model for reference
 
 // user schema defines shape of object to be stored
@@ -26,22 +27,7 @@ const userSchema = new Schema({
     minlength: 5,
   },
   // array of sounds for the user
-  soundboard: [
-    {
-      soundName: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: true,
-      },
-      url: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: true,
-      },
-    },
-  ],
+  sounds: [{ type: Schema.Types.ObjectId, ref: 'Sound' }],
 });
 
 // middleware to hash password any time the user is created or updated

@@ -52,15 +52,11 @@ const resolvers = {
 
       return { token, user };
     },
-    addSoundToBoard: async (parent, { soundName, url }, context) => {
+    addSoundToBoard: async (parent, { soundId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
-          {
-            $addToSet: {
-              soundboard: { soundName, url },
-            },
-          },
+          { $addToSet: { sounds: soundId } },
           { new: true }
         );
       }
@@ -68,15 +64,11 @@ const resolvers = {
         'You need to be logged in to add to a soundboard!'
       );
     },
-    removeSoundFromBoard: async (parent, { id }, context) => {
+    removeSoundFromBoard: async (parent, { soundId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
-          {
-            $pull: {
-              soundboard: { _id: id },
-            },
-          },
+          { $pull: { sounds: soundId } },
           { new: true }
         );
       }
