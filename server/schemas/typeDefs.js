@@ -5,7 +5,6 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    soundboards: [Soundboard]
   }
 
   type Sound {
@@ -14,23 +13,27 @@ const typeDefs = gql`
     url: String
   }
 
- 
+  type Soundboard {
+    _id: ID
+    sounds: [Sound]
+  }
 
   type Auth {
     token: ID!
-   user: User
+    user: User
   }
 
   type Query {
     user(username: String!): User
+    users: [User]
     me: User
     sounds: [Sound]
-    sound(soundId: ID!)
-     }
+    sound(soundId: ID!): Sound
+  }
 
-  
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    removeUser: User
     login(email: String!, password: String!): Auth
     addSoundToBoard(soundId: ID!): User
     removeSoundFromBoard(soundId: ID!): User
