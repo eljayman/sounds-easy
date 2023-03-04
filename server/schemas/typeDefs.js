@@ -5,22 +5,18 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    soundboard: [Sound]
   }
 
   type Sound {
     _id: ID
-    name: String
+    soundName: String
     url: String
   }
 
-  type Soundboard {
-    _id: ID
-    sounds: [Sound]
-  }
-
   type Auth {
-    token: ID!
     user: User
+    token: ID!
   }
 
   type Query {
@@ -35,8 +31,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     removeUser: User
     login(email: String!, password: String!): Auth
-    addSoundToBoard(soundId: ID!): User
-    removeSoundFromBoard(soundId: ID!): User
+    addSoundToBoard(soundName: String!, url: String!): User
+    removeSoundFromBoard(soundName: String!): User
   }
 `;
 

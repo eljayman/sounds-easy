@@ -2,18 +2,6 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 // require Soundboard model for reference
 
-const soundboardSchema = new Schema(
-  {
-      sounds: [{type: Schema.Types.ObjectId, ref: 'Sound'}],
-  }
-  
-)
-
-// counts the number of sounds in the soundboard
-soundboardSchema.virtual('soundCount').get(function () {
-  return this.sounds.length;
-});
-
 // user schema defines shape of object to be stored
 const userSchema = new Schema({
   username: {
@@ -28,17 +16,32 @@ const userSchema = new Schema({
     unique: true,
     // validate email address
     match: [
-        /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-        'Please use a valid email address',
-      ],
+      /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+      'Please use a valid email address',
+    ],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  // array of soundboards for the user
-  soundboard: soundboardSchema  
+  // array of sounds for the user
+  soundboard: [
+    {
+      soundName: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+      },
+      url: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+      },
+    },
+  ],
 });
 
 // middleware to hash password any time the user is created or updated
@@ -51,7 +54,7 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-  // method on the schema to check the password
+// method on the schema to check the password
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
