@@ -12,9 +12,19 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('soundboard');
+        return User.findOne({ _id: context.user._id }).populate('sounds');
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    mySounds: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findOne({ _id: context.user._id }).populate(
+          'sounds'
+        );
+        const mySoundsArray = user.sounds;
+        return Sound.find().where('_id').in(mySoundsArray).exec();
+      }
+      throw new AuthenticationError('User needs to be logged in!');
     },
     sounds: async () => {
       return Sound.find();
