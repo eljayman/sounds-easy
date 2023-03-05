@@ -23,6 +23,7 @@ const typeDefs = gql`
     user(username: String!): User
     users: [User]
     me: User
+    mySounds: [Sound]
     sounds: [Sound]
     sound(soundId: ID!): Sound
   }
