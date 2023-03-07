@@ -71,7 +71,7 @@ const Login = () => {
       <div className="col-start-2 items-center p-4">
         {/* Login form */}
         <form onSubmit={handleLoginSubmit} className="space-y-8">
-          <h2 className="mb-4 text-3xl tracking-tight text-center text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-3xl tracking-tight text-center text-white">
             Login
           </h2>
           <label className="block mb-2 text-m font-medium text-gray-300">
@@ -85,7 +85,7 @@ const Login = () => {
             />
           </label>
           <br />
-          <label className="block mb-2 text-m font-medium text-gray-900 dark:text-gray-300">
+          <label className="block mb-2 text-m font-medium text-gray-300">
             Password:
             <input
               type="password"
@@ -107,11 +107,11 @@ const Login = () => {
       <div className="col-start-4 items-center p-4">
         {/* Signup form */}
         <form onSubmit={handleSignupSubmit} className="space-y-8">
-          <h2 className="mb-4 text-3xl tracking-tight text-center text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-3xl tracking-tight text-center text-white">
             Signup
           </h2>
           <div className="items-center">
-            <label className="block mb-2 textsm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-m font-medium text-gray-300">
               Username:
               <input
                 type="text"
@@ -122,7 +122,7 @@ const Login = () => {
               />
             </label>
             <br />
-            <label className="block mb-2 text-m font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-m font-medium text-gray-300">
               Email:
               <input
                 type="email"
@@ -133,7 +133,7 @@ const Login = () => {
               />
             </label>
             <br />
-            <label className="block mb-2 text-m font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-m font-medium text-gray-300">
               Password:
               <input
                 type="password"
