@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const Dashboard = ({ username }) => {
   const [library, setLibrary] = useState([]);
@@ -8,10 +7,6 @@ const Dashboard = ({ username }) => {
   useEffect(() => {
     const fetchLibrary = async () => {
       try {
-        // Use axios to make a GET request to the server, passing in the username in the URL
-        const response = await axios.get(`/api/library/${username}`); // ***ADD LIBRARY API ROUTE
-        // Set the library state variable to the data returned by the server
-        setLibrary(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -23,8 +18,6 @@ const Dashboard = ({ username }) => {
   // Delete sound from library and update state
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/library/${id}`); // ***ADD LIBRARY API ROUTE
-      setLibrary(library.filter((sound) => sound.id !== id));
     } catch (error) {
       console.error(error);
     }
