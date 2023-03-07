@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useMutation } from '@apollo/client';
+import { ADD_USER, USER_LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth.js';
 
-const Auth = ({ onLogin, onSignUp }) => {
+const Login = () => {
+  const [userLogin] = useMutation(USER_LOGIN);
+  const [addUser] = useMutation(ADD_USER);
   // Create state variables for the login and signup forms
   const [loginForm, setLoginForm] = useState({
     email: '',
@@ -33,10 +37,13 @@ const Auth = ({ onLogin, onSignUp }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('', loginForm); // ***ADD LOGIN API ROUTE
-      onLogin(response.data.username);
-    } catch (error) {
-      console.error(error);
+      const { data } = await userLogin({
+        variables: { ...loginForm },
+      });
+      console.log(data.login.token);
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -45,11 +52,18 @@ const Auth = ({ onLogin, onSignUp }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('', signupForm); // ***ADD SIGNUP API ROUTE
-      onSignUp(response.data.username);
-    } catch (error) {
-      console.error(error);
+      const { data } = await addUser({
+        variables: { ...signupForm },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
     }
+    setSignupForm({
+      email: '',
+      password: '',
+    });
   };
 
   return (
@@ -143,4 +157,4 @@ const Auth = ({ onLogin, onSignUp }) => {
   );
 };
 
-export default Auth;
+export default Login;
