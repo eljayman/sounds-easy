@@ -8,8 +8,8 @@ function Header() {
     <header className="bg-gray-800 md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <ul className="">
-          <li className="ml-3 text-xl title-font font-medium text-white mb-4 md:mb-0">
-            <Link to="/">Sounds Easy</Link>
+          <li className="ml-3 text-4xl title-font font-mono font-medium text-white mb-4 md:mb-0">
+            <Link to="/">Sounds-Easy</Link>
           </li>
         </ul>
 
