@@ -6,7 +6,7 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
   // get user data from JSON web token by decoding it
-  getProfile() {
+  getUser() {
     return decode(this.getToken());
   }
   // return `true` or `false` if token exists (does not verify if it's expired yet)
@@ -17,7 +17,7 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    // window.location.assign('/dashboard');
   }
   logout() {
     // Clear user token and profile data from localStorage
@@ -25,6 +25,8 @@ class AuthService {
     // this will reload the page and reset the state of the application
     window.location.reload();
   }
+
+  // checks to see if token is expired
   isTokenExpired(token) {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {
@@ -35,4 +37,6 @@ class AuthService {
   }
 }
 
-export default new AuthService();
+const Auth = new AuthService();
+
+export default Auth;
