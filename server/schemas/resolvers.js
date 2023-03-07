@@ -5,10 +5,10 @@ const { AuthenticationError } = require('apollo-server-express');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('soundboard');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('soundboard');
+      return User.findOne({ username });
     },
     me: async (parent, args, context) => {
       if (context.user) {
