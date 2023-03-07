@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Login from '../Login';
 import Landing from '../Landing';
 import Dashboard from '../Dashboard';
@@ -80,49 +82,59 @@ function App() {
     // </div>
 
     <Router>
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={<Landing user={user} handleLogout={handleLogout} />}
-        />
-        <Route
-          path="/login"
-          element={
-            <Login formType="login" handleSubmit={handleLogin} error={error} />
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <Login
-              formType="signup"
-              handleSubmit={handleSignup}
-              error={error}
+      <main className="text-gray-400 bg-gray-900 body-font h-screen justify-between">
+        <Header />
+        <div className="h-screen bg-gray-900">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={<Landing user={user} handleLogout={handleLogout} />}
             />
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <Dashboard
-              user={user}
-              handleLogout={handleLogout}
-              handleAddToLibrary={handleAddToLibrary}
+            <Route
+              path="/login"
+              element={
+                <Login
+                  formType="login"
+                  handleSubmit={handleLogin}
+                  error={error}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/library"
-          element={<Library user={user} selectedSounds={selectedSounds} />}
-        />
-        <Route
-          path="/soundboard"
-          element={
-            <Soundboard sounds={sounds} onSoundClick={handleAddToLibrary} />
-          }
-        />
-      </Routes>
+            <Route
+              path="/signup"
+              element={
+                <Login
+                  formType="signup"
+                  handleSubmit={handleSignup}
+                  error={error}
+                />
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <Dashboard
+                  user={user}
+                  handleLogout={handleLogout}
+                  handleAddToLibrary={handleAddToLibrary}
+                />
+              }
+            />
+            <Route
+              path="/library"
+              element={<Library user={user} selectedSounds={selectedSounds} />}
+            />
+            <Route
+              path="/soundboard"
+              element={
+                <Soundboard sounds={sounds} onSoundClick={handleAddToLibrary} />
+              }
+            />
+          </Routes>
+        </div>
+        <Footer />
+      </main>
     </Router>
   );
 }

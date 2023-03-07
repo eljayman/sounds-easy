@@ -8,7 +8,7 @@ function Sound(sounds) {
   };
 
   return (
-    <li className="sound" onClick={handleClick}>
+    <li className="sound inline-block p-4" onClick={handleClick}>
       <img src={sounds.image} alt={sounds.title} width={'160px'} />
       <p>{sounds.title}</p>
     </li>
