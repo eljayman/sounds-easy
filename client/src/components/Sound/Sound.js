@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { ADD_SOUND_TO_BOARD } from '../../utils/mutations';
 import { QUERY_MY_SOUNDS } from '../../utils/queries';
 import Auth from '../../utils/auth';
@@ -11,6 +11,7 @@ function Sound({ _id, soundName, url, removeSound }) {
   const [addSound] = useMutation(ADD_SOUND_TO_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
   });
+  const [mySounds] = useQuery(QUERY_MY_SOUNDS);
 
   const location = useLocation();
 
@@ -45,7 +46,7 @@ function Sound({ _id, soundName, url, removeSound }) {
                       setSoundAdded(true);
                     }}
                   >
-                    {soundAdded ? 'Sound added to Dashboard!' : '+ Add Sound'}
+                    {soundAdded || mySounds.some(sound => sound._id === _id) ? 'Sound added to Dashboard!' : '+ Add Sound'}
                   </button>
                 </div>
               ) : (
