@@ -42,7 +42,7 @@ function App() {
       <Router>
         <main className="text-gray-400 bg-gray-900 body-font h-screen justify-between">
           <Header />
-          <div className="h-screen bg-gray-900">
+          <div className="flex-grow bg-gray-900">
             <Routes>
               <Route exact path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />
