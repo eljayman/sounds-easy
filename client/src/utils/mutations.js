@@ -29,13 +29,6 @@ export const ADD_SOUND_TO_BOARD = gql`
   mutation Mutation($soundId: ID!) {
     addSoundToBoard(soundId: $soundId) {
       _id
-      username
-      email
-      sounds {
-        _id
-        soundName
-        url
-      }
     }
   }
 `;
@@ -44,10 +37,6 @@ export const REMOVE_SOUND_FROM_BOARD = gql`
   mutation Mutation($soundId: ID!) {
     removeSoundFromBoard(soundId: $soundId) {
       _id
-      username
-      sounds {
-        _id
-      }
     }
   }
 `;

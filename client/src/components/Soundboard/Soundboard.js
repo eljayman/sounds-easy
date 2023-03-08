@@ -4,13 +4,8 @@ import { QUERY_ALL_SOUNDS } from '../../utils/queries';
 import Sound from '../Sound';
 
 function Soundboard() {
-  // const [selectedSounds, setSelectedSounds] = useState([]);
   const { loading, data } = useQuery(QUERY_ALL_SOUNDS);
   const allSounds = data?.sounds || [];
-  console.log(allSounds);
-  // const handleSoundClick = (sound) => {
-  //   setSelectedSounds([...selectedSounds, sound]);
-  // };
 
   return (
     <div className="soundboard grid grid-cols-5">
@@ -25,7 +20,6 @@ function Soundboard() {
               _id={data._id}
               url={data.url}
               soundName={data.soundName}
-              //onClick={() => handleSoundClick} NEEDS CHANGE
             />
           ))}
         </ul>
@@ -35,12 +29,3 @@ function Soundboard() {
 }
 
 export default Soundboard;
-
-// {loading ? (
-//   <div>Loading...</div>
-// ) : (
-//   <ProfileList
-//     profiles={profiles}
-//     title="Here's the current roster of friends..."
-//   />
-// )}
