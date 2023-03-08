@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Sound({_id, soundName, url}) {
+function Sound({ _id, soundName, url }) {
   const [audio] = useState(new Audio(url));
 
   const handleClick = () => {
@@ -8,7 +8,7 @@ function Sound({_id, soundName, url}) {
   };
 
   return (
-    <li className="sound inline-block p-4" onClick={handleClick}>
+    <li  className="sound inline-block p-4" onClick={handleClick}>
       {/* <img src={sounds.image} alt={sounds.soundName} width={'160px'} /> */}
       <p>{soundName}</p>
     </li>

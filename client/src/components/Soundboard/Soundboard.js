@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import {  useQuery } from '@apollo/client';
+import React from 'react';
+import { useQuery } from '@apollo/client';
 import { QUERY_ALL_SOUNDS } from '../../utils/queries';
 import Sound from '../Sound';
 
-function Soundboard(soundProps) {
-  const [selectedSounds, setSelectedSounds] = useState([]);
+function Soundboard() {
+  // const [selectedSounds, setSelectedSounds] = useState([]);
   const { loading, data } = useQuery(QUERY_ALL_SOUNDS);
-  const allSounds = data?.allSounds || [];
-
-  const handleSoundClick = (sound) => {
-    setSelectedSounds([...selectedSounds, sound]);
-  };
+  const allSounds = data?.sounds || [];
+  console.log(allSounds);
+  // const handleSoundClick = (sound) => {
+  //   setSelectedSounds([...selectedSounds, sound]);
+  // };
 
   return (
     <div className="soundboard grid grid-cols-5">
@@ -35,7 +35,6 @@ function Soundboard(soundProps) {
 }
 
 export default Soundboard;
-
 
 // {loading ? (
 //   <div>Loading...</div>

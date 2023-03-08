@@ -21,10 +21,11 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_ALL_SOUNDS = gql`
-sounds {
-    _id
-    soundName
-    url
+  query Sounds {
+    sounds {
+      _id
+      soundName
+      url
+    }
   }
-}
 `;
