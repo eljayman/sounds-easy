@@ -10,7 +10,13 @@ function Header() {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <ul className="">
           <li className="ml-3 text-4xl title-font font-mono font-medium text-white mb-4 md:mb-0">
-            <Link to="/">Sounds-Easy</Link>
+            <Link to="/">
+              <img
+                src="https://user-images.githubusercontent.com/113566829/223625740-e0f1790c-6712-421f-9f80-a8a2ca59827a.png"
+                alt="Sounds-Easy Logo"
+                width="300px"
+              />
+            </Link>
           </li>
         </ul>
 
