@@ -11,7 +11,8 @@ function Sound({ _id, soundName, url, removeSound }) {
   const [addSound] = useMutation(ADD_SOUND_TO_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
   });
-  const [mySounds] = useQuery(QUERY_MY_SOUNDS);
+  const { loading, data } = useQuery(QUERY_MY_SOUNDS);
+  const mySounds = data?.mySounds || [];
 
   const location = useLocation();
 
@@ -46,7 +47,9 @@ function Sound({ _id, soundName, url, removeSound }) {
                       setSoundAdded(true);
                     }}
                   >
-                    {soundAdded || mySounds.some(sound => sound._id === _id) ? 'Sound added to Dashboard!' : '+ Add Sound'}
+                    {soundAdded || mySounds.some((sound) => sound._id === _id)
+                      ? 'Sound added to Dashboard!'
+                      : '+ Add Sound'}
                   </button>
                 </div>
               ) : (
