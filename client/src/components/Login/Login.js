@@ -49,6 +49,10 @@ const Login = () => {
       console.error(e);
       alert(e);
     }
+    setLoginForm({
+      email: '',
+      password: '',
+    });
   };
 
   // Handle signup form submission
@@ -68,6 +72,7 @@ const Login = () => {
       alert(e);
     }
     setSignupForm({
+      username: '',
       email: '',
       password: '',
     });

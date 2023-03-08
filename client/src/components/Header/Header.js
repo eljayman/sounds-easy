@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useMatch } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import './Header.css';
 
 function Header() {
+  const pathMatch = useMatch('/dashboard');
   return (
     <header className="bg-gray-800 md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -25,7 +26,9 @@ function Header() {
               <NavLink
                 to={Auth.loggedIn() ? '/dashboard' : '/login'}
                 className={(navData) =>
-                  navData.isActive ? 'font-bold text-white' : 'none'
+                  navData.isActive && pathMatch
+                    ? 'font-bold text-white'
+                    : 'none'
                 }
               >
                 Dashboard
