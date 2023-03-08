@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER, USER_LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth.js';
@@ -6,6 +7,7 @@ import Auth from '../../utils/auth.js';
 const Login = () => {
   const [userLogin] = useMutation(USER_LOGIN);
   const [addUser] = useMutation(ADD_USER);
+  const history = useHistory();
   // Create state variables for the login and signup forms
   const [loginForm, setLoginForm] = useState({
     email: '',
@@ -40,10 +42,11 @@ const Login = () => {
       const { data } = await userLogin({
         variables: { ...loginForm },
       });
-      console.log(data.login.token);
       Auth.login(data.login.token);
+      history.push('/dashboard'); // redirect to dashboard page
     } catch (e) {
       console.error(e);
+      alert(e);
     }
   };
 
@@ -57,8 +60,10 @@ const Login = () => {
       });
 
       Auth.login(data.addUser.token);
+      history.push('/dashboard'); // redirect to dashboard page
     } catch (e) {
       console.error(e);
+      alert(e);
     }
     setSignupForm({
       email: '',
