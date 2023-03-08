@@ -6,7 +6,8 @@ import { REMOVE_SOUND_FROM_BOARD } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 const Dashboard = () => {
-  const [user] = useQuery(QUERY_ME);
+  const { waiting, info } = useQuery(QUERY_ME);
+  const me = info?.me || {};
   const [removeSound] = useMutation(REMOVE_SOUND_FROM_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
   });
@@ -16,7 +17,7 @@ const Dashboard = () => {
   return (
     <div className="soundboard grid grid-cols-5">
       <div className="col-start-2 col-span-3 items-center p-4">
-        <h1 className="text-center text-4xl">{user.me.username}'s Dashboard</h1>
+        <h1 className="text-center text-4xl">{me.username}'s Dashboard</h1>
       </div>
       <div className="col-start-2 col-span-3 items-center p-4">
         <h2 className="text-center text-3xl">My Sounds:</h2>
