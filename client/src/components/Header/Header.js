@@ -4,7 +4,6 @@ import Auth from '../../utils/auth';
 import './Header.css';
 
 function Header() {
-  const [user, loggedIn] = useState(); //Use this to determine if a user is logged in. If logged in, hide Login and Signup buttons and replace with Logout button
   return (
     <header className="bg-gray-800 md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -12,9 +11,9 @@ function Header() {
           <li className="ml-3 text-4xl title-font font-mono font-medium text-white mb-4 md:mb-0">
             <Link to="/">
               <img
-                src="https://user-images.githubusercontent.com/113566829/223625740-e0f1790c-6712-421f-9f80-a8a2ca59827a.png"
+                src="https://user-images.githubusercontent.com/113566829/223628015-0bad1a25-9505-4c8e-9bb5-e9041dae2806.png"
                 alt="Sounds-Easy Logo"
-                width="300px"
+                width="150px"
               />
             </Link>
           </li>
@@ -25,7 +24,7 @@ function Header() {
             <li className="mr-5">
               <NavLink
                 exact="true"
-                to="/dashboard"
+                to={Auth.loggedIn() ? '/dashboard' : '/login'}
                 className={(navData) =>
                   navData.isActive ? 'font-bold text-white' : 'none'
                 }
