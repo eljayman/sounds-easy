@@ -50,6 +50,7 @@ function Header() {
               <NavLink
                 exact="true"
                 to="/"
+                onClick={() => Auth.logout()}
                 className={(navData) =>
                   navData.isActive ? 'font-bold text-white' : 'none'
                 }
