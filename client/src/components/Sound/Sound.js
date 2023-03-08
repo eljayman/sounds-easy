@@ -20,7 +20,14 @@ function Sound({ _id, soundName, url, removeSound }) {
   return (
     <li className="sound inline-block p-4">
       {/* <img src={sounds.image} alt={sounds.soundName} width={'160px'} /> */}
-      <p onClick={handleClick}>{soundName}</p>
+      <button
+        onClick={handleClick}
+        className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-cyan-800"
+      >
+        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          {soundName}
+        </span>
+      </button>
       <div>
         {Auth.loggedIn() ? (
           <>
@@ -28,25 +35,29 @@ function Sound({ _id, soundName, url, removeSound }) {
               {location.pathname === '/soundboard' ? (
                 <div>
                   <button
+                    type="button"
+                    className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium focus:outline-none rounded-lg border focus:z-10 focus:ring-4 focus:ring-gray-700 bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
                     onClick={async () =>
                       await addSound({
                         variables: { soundId: _id },
                       })
                     }
                   >
-                    Add Sound to library
+                    + Add Sound
                   </button>
                 </div>
               ) : (
                 <div>
                   <button
+                    type="button"
+                    className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium focus:outline-none rounded-lg border focus:z-10 focus:ring-4 focus:ring-gray-700 bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
                     onClick={async () =>
                       await removeSound({
                         variables: { soundId: _id },
                       })
                     }
                   >
-                    Remove Sound from library
+                    - Remove Sound
                   </button>
                 </div>
               )}
