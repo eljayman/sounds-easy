@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import './Header.css';
@@ -8,12 +8,12 @@ function Header() {
     <header className="bg-gray-800 md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <ul className="">
-          <li className="ml-3 text-4xl title-font font-mono font-medium text-white mb-4 md:mb-0">
+          <li className="title-font font-mono font-medium text-white  inset-x-0 top-0">
             <Link to="/">
               <img
                 src="https://user-images.githubusercontent.com/113566829/223672997-c6da1d50-3a51-4966-ac6d-3524180bda53.png"
                 alt="Sounds-Easy Logo"
-                width="150px"
+                width="200px"
               />
             </Link>
           </li>
