@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import Auth from '../../utils/auth';
 import './Header.css';
 
 function Header() {
@@ -9,7 +10,13 @@ function Header() {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <ul className="">
           <li className="ml-3 text-4xl title-font font-mono font-medium text-white mb-4 md:mb-0">
-            <Link to="/">Sounds-Easy</Link>
+            <Link to="/">
+              <img
+                src="https://user-images.githubusercontent.com/113566829/223625740-e0f1790c-6712-421f-9f80-a8a2ca59827a.png"
+                alt="Sounds-Easy Logo"
+                width="300px"
+              />
+            </Link>
           </li>
         </ul>
 
@@ -39,26 +46,30 @@ function Header() {
           </ul>
         </nav>
         <ul className="text-white">
-          <li className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-            <NavLink
-              to="/landing"
-              className={(navData) =>
-                navData.isActive ? 'font-bold text-white' : 'none'
-              }
-            >
-              Logout
-            </NavLink>
-          </li>
-          <li className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-            <NavLink
-              to="/login"
-              className={(navData) =>
-                navData.isActive ? 'font-bold text-white' : 'none'
-              }
-            >
-              Login or Signup
-            </NavLink>
-          </li>
+          {Auth.loggedIn() ? (
+            <li className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+              <NavLink
+                exact="true"
+                to="/"
+                className={(navData) =>
+                  navData.isActive ? 'font-bold text-white' : 'none'
+                }
+              >
+                Logout
+              </NavLink>
+            </li>
+          ) : (
+            <li className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+              <NavLink
+                to="/login"
+                className={(navData) =>
+                  navData.isActive ? 'font-bold text-white' : 'none'
+                }
+              >
+                Login or Signup
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </header>
