@@ -6,6 +6,7 @@ import { QUERY_MY_SOUNDS } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 function Sound({ _id, soundName, url, removeSound }) {
+  const [soundAdded, setSoundAdded] = useState(false);
   const [audio] = useState(new Audio(url));
   const [addSound] = useMutation(ADD_SOUND_TO_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
@@ -43,7 +44,7 @@ function Sound({ _id, soundName, url, removeSound }) {
                       })
                     }
                   >
-                    + Add Sound
+                    {soundAdded ? 'Sound added to Dashboard!' : '+ Add Sound'}
                   </button>
                 </div>
               ) : (
