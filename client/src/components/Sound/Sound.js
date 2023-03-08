@@ -12,7 +12,7 @@ function Sound({ _id, soundName, url }) {
   const [addSound] = useMutation(ADD_SOUND_TO_BOARD);
   const [removeSound] = useMutation(REMOVE_SOUND_FROM_BOARD);
   const location = useLocation();
-
+  console.log(_id);
   const handleClick = () => {
     audio.play();
   };
@@ -27,11 +27,25 @@ function Sound({ _id, soundName, url }) {
             <div>
               {location.pathname === '/soundboard' ? (
                 <div>
-                  <button onClick={addSound(_id)}>Add Sound to library</button>
+                  <button
+                    onClick={() =>
+                      addSound({
+                        variables: { soundId: _id },
+                      })
+                    }
+                  >
+                    Add Sound to library
+                  </button>
                 </div>
               ) : (
                 <div>
-                  <button onClick={removeSound(_id)}>
+                  <button
+                    onClick={() =>
+                      removeSound({
+                        variables: { soundId: _id },
+                      })
+                    }
+                  >
                     Add Sound to library
                   </button>
                 </div>

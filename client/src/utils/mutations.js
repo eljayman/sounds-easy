@@ -30,8 +30,11 @@ export const ADD_SOUND_TO_BOARD = gql`
     addSoundToBoard(soundId: $soundId) {
       _id
       username
+      email
       sounds {
         _id
+        soundName
+        url
       }
     }
   }

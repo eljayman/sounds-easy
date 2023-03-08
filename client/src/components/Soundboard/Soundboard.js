@@ -22,7 +22,7 @@ function Soundboard() {
           {allSounds.map((data) => (
             <Sound
               key={data._id}
-              // image={image}
+              _id={data._id}
               url={data.url}
               soundName={data.soundName}
               //onClick={() => handleSoundClick} NEEDS CHANGE
