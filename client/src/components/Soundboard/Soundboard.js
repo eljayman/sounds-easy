@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import {  useQuery } from '@apollo/client';
+import { QUERY_ALL_SOUNDS } from '../../utils/queries';
 import Sound from '../Sound';
 
 function Soundboard(soundProps) {
   const [selectedSounds, setSelectedSounds] = useState([]);
+  const { loading, data } = useQuery(QUERY_ALL_SOUNDS);
+  const allSounds = data?.allSounds || [];
 
   const handleSoundClick = (sound) => {
     setSelectedSounds([...selectedSounds, sound]);
@@ -15,13 +19,13 @@ function Soundboard(soundProps) {
       </div>
       <div className="col-start-2 col-span-3 items-center p-2">
         <ul style={{ listStyleType: 'none' }}>
-          {soundProps.sounds.map((sound) => (
+          {allSounds.map((data) => (
             <Sound
-              key={sound.id}
-              image={sound.image}
-              file={sound.file}
-              title={sound.title}
-              onClick={() => handleSoundClick(sound)} //NEEDS CHANGE
+              key={data._id}
+              // image={image}
+              url={data.url}
+              soundName={data.soundName}
+              //onClick={() => handleSoundClick} NEEDS CHANGE
             />
           ))}
         </ul>
@@ -31,3 +35,13 @@ function Soundboard(soundProps) {
 }
 
 export default Soundboard;
+
+
+// {loading ? (
+//   <div>Loading...</div>
+// ) : (
+//   <ProfileList
+//     profiles={profiles}
+//     title="Here's the current roster of friends..."
+//   />
+// )}
