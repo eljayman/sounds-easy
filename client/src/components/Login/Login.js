@@ -43,7 +43,8 @@ const Login = () => {
         variables: { ...loginForm },
       });
       Auth.login(data.login.token);
-      navigate('/dashboard'); // redirect to dashboard page
+      // navigate('/dashboard'); // redirect to dashboard page
+      alert('Login successful!');
     } catch (e) {
       console.error(e);
       alert(e);
@@ -60,7 +61,8 @@ const Login = () => {
       });
 
       Auth.login(data.addUser.token);
-      navigate('/dashboard'); // redirect to dashboard page
+      // navigate('/dashboard'); // redirect to dashboard page
+      alert('Signup successful!');
     } catch (e) {
       console.error(e);
       alert(e);
