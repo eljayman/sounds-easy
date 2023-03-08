@@ -10,7 +10,8 @@ const Dashboard = () => {
   const [removeSound] = useMutation(REMOVE_SOUND_FROM_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
   });
-  const [mySounds] = useQuery(QUERY_MY_SOUNDS);
+  const { loading, data } = useQuery(QUERY_MY_SOUNDS);
+  const mySounds = data?.mySounds || [];
 
   return (
     <div className="soundboard grid grid-cols-5">
