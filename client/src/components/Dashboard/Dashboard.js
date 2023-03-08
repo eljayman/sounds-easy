@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_MY_SOUNDS } from '../../utils/queries';
+import { QUERY_ME, QUERY_MY_SOUNDS } from '../../utils/queries';
 import Sound from '../Sound';
 import { REMOVE_SOUND_FROM_BOARD } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 const Dashboard = () => {
+  const [user] = useQuery(QUERY_ME);
   const [removeSound] = useMutation(REMOVE_SOUND_FROM_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
   });
@@ -15,7 +16,7 @@ const Dashboard = () => {
   return (
     <div className="soundboard grid grid-cols-5">
       <div className="col-start-2 col-span-3 items-center p-4">
-        <h1 className="text-center text-4xl">User Dashboard</h1>
+        <h1 className="text-center text-4xl">{user.me.username}'s Dashboard</h1>
       </div>
       <div className="col-start-2 col-span-3 items-center p-4">
         <h2 className="text-center text-3xl">My Sounds:</h2>
@@ -29,7 +30,6 @@ const Dashboard = () => {
               url={data.url}
               soundName={data.soundName}
               removeSound={removeSound}
-              //onClick={() => handleSoundClick} NEEDS CHANGE
             />
           ))}
         </ul>
