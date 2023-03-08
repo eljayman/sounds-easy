@@ -5,7 +5,7 @@ import Sound from '../Sound';
 
 const Dashboard = () => {
   const { loading, data } = useQuery(QUERY_MY_SOUNDS);
-  const mySounds = data?.sounds || [];
+  const mySounds = data?.mySounds || [];
   console.log(mySounds);
 
   return (
