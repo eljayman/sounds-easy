@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER, USER_LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth.js';
@@ -44,6 +44,7 @@ const Login = () => {
         variables: { ...loginForm },
       });
       Auth.login(data.login.token);
+      <Navigate to="/soundboard" replace={true} />;
     } catch (e) {
       console.error(e);
       alert(e);
@@ -67,6 +68,7 @@ const Login = () => {
         });
 
         Auth.login(data.addUser.token);
+        <Navigate to="/soundboard" replace={true} />;
       } catch (e) {
         console.error(e);
         alert(e);
