@@ -43,7 +43,6 @@ const Login = () => {
         variables: { ...loginForm },
       });
       Auth.login(data.login.token);
-      <Navigate to="/soundboard" replace={true} />;
     } catch (e) {
       console.error(e);
       alert(e);
@@ -67,7 +66,6 @@ const Login = () => {
         });
 
         Auth.login(data.addUser.token);
-        <Navigate to="/soundboard" replace={true} />;
       } catch (e) {
         console.error(e);
         alert(e);
