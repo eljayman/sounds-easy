@@ -24,7 +24,8 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 8,
+    max: 16,
   },
   // array of sounds for the user
   sounds: [{ type: Schema.Types.ObjectId, ref: 'Sound' }],

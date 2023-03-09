@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';
 import { ADD_USER, USER_LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth.js';
@@ -7,7 +7,7 @@ import Auth from '../../utils/auth.js';
 const Login = () => {
   const [userLogin] = useMutation(USER_LOGIN);
   const [addUser] = useMutation(ADD_USER);
-  const navigate = useNavigate();
+
   // Create state variables for the login and signup forms
   const [loginForm, setLoginForm] = useState({
     email: '',
@@ -18,6 +18,7 @@ const Login = () => {
     username: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const handleLoginChange = (e) => {
@@ -43,8 +44,6 @@ const Login = () => {
         variables: { ...loginForm },
       });
       Auth.login(data.login.token);
-      // navigate('/dashboard'); // redirect to dashboard page
-      alert('Login successful!');
     } catch (e) {
       console.error(e);
       alert(e);
@@ -58,37 +57,41 @@ const Login = () => {
   // Handle signup form submission
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
+    if (
+      JSON.stringify(signupForm.password) ===
+      JSON.stringify(signupForm.confirmPassword)
+    ) {
+      try {
+        const { data } = await addUser({
+          variables: { ...signupForm },
+        });
 
-    try {
-      const { data } = await addUser({
-        variables: { ...signupForm },
+        Auth.login(data.addUser.token);
+      } catch (e) {
+        console.error(e);
+        alert(e);
+      }
+    } else {
+      alert('Passwords must match');
+      setSignupForm({
+        password: '',
+        confirmPassword: '',
       });
-
-      Auth.login(data.addUser.token);
-      // navigate('/dashboard'); // redirect to dashboard page
-      alert('Signup successful!');
-    } catch (e) {
-      console.error(e);
-      alert(e);
     }
-    setSignupForm({
-      username: '',
-      email: '',
-      password: '',
-    });
   };
 
   return (
-    <div className="grid grid-cols-5">
-      <div className="col-start-2 items-center p-4">
+    <div className="grid grid-cols-8">
+      <div className="col-start-2 items-center p-4 col-span-2">
         {/* Login form */}
-        <form onSubmit={handleLoginSubmit} className="space-y-8">
+        <form onSubmit={handleLoginSubmit} className="space-y-8 min-w-300">
           <h2 className="mb-4 text-3xl tracking-tight text-center text-white">
             Login
           </h2>
           <label className="block mb-2 text-m font-medium text-gray-300">
             Email:
             <input
+              placeholder="Your email address"
               type="email"
               name="email"
               value={loginForm.email}
@@ -100,6 +103,7 @@ const Login = () => {
           <label className="block mb-2 text-m font-medium text-gray-300">
             Password:
             <input
+              placeholder="Your password"
               type="password"
               name="password"
               value={loginForm.password}
@@ -116,9 +120,9 @@ const Login = () => {
           </button>
         </form>
       </div>
-      <div className="col-start-4 items-center p-4">
+      <div className="col-start-5 items-center p-4 col-span-2">
         {/* Signup form */}
-        <form onSubmit={handleSignupSubmit} className="space-y-8">
+        <form onSubmit={handleSignupSubmit} className="space-y-8 min-w-300">
           <h2 className="mb-4 text-3xl tracking-tight text-center text-white">
             Signup
           </h2>
@@ -126,6 +130,7 @@ const Login = () => {
             <label className="block mb-2 text-m font-medium text-gray-300">
               Username:
               <input
+                placeholder="New user name"
                 type="text"
                 name="username"
                 value={signupForm.username}
@@ -137,6 +142,7 @@ const Login = () => {
             <label className="block mb-2 text-m font-medium text-gray-300">
               Email:
               <input
+                placeholder="New user email address"
                 type="email"
                 name="email"
                 value={signupForm.email}
@@ -148,6 +154,7 @@ const Login = () => {
             <label className="block mb-2 text-m font-medium text-gray-300">
               Password:
               <input
+                placeholder="Password from 8 to 16 characters"
                 type="password"
                 name="password"
                 value={signupForm.password}
@@ -156,6 +163,18 @@ const Login = () => {
               />
             </label>
             <br />
+            <br />
+            <label className="block mb-2 text-m font-medium text-gray-300">
+              Password:
+              <input
+                placeholder="Confirm your password"
+                type="password"
+                name="confirmPassword"
+                value={signupForm.confirmPassword}
+                onChange={handleSignupChange}
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+              />
+            </label>
             <button
               type="submit"
               className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"

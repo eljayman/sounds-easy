@@ -6,13 +6,13 @@ import { REMOVE_SOUND_FROM_BOARD } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 const Dashboard = () => {
-  const { waiting, info } = useQuery(QUERY_ME);
-  const me = info?.me || {};
+  const { loading: waiting, data: userData } = useQuery(QUERY_ME);
+  const me = userData?.me || {};
   const [removeSound] = useMutation(REMOVE_SOUND_FROM_BOARD, {
     refetchQueries: [{ query: QUERY_MY_SOUNDS }],
   });
-  const { loading, data } = useQuery(QUERY_MY_SOUNDS);
-  const mySounds = data?.mySounds || [];
+  const { loading, data: soundData } = useQuery(QUERY_MY_SOUNDS);
+  const mySounds = soundData?.mySounds || [];
 
   return (
     <div className="soundboard grid grid-cols-5">
