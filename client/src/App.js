@@ -46,18 +46,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />
-
-              <Route
-                path="/dashboard"
-                element={
-                  <Dashboard
-                  // user={user}
-                  // handleLogout={handleLogout}
-                  // handleAddToLibrary={handleAddToLibrary}
-                  />
-                }
-              />
-              <Route path="/library" element={<Library />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/soundboard" element={<Soundboard />} />
             </Routes>
           </div>
