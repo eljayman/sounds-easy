@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_MY_SOUNDS } from '../../utils/queries';
 import Sound from '../Sound';
@@ -15,17 +14,6 @@ const Dashboard = () => {
   const { loading, data: soundData } = useQuery(QUERY_MY_SOUNDS);
   const mySounds = soundData?.mySounds || [];
 
-  const [authenticated, setAuthenticated] = useState(null);
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem('id_token');
-    if (loggedInUser) {
-      setAuthenticated(loggedInUser);
-    }
-  }, []);
-
-  if (!authenticated) {
-    return <Navigate replace to="/login" />;
-  } else {
     return (
       <div className="soundboard grid grid-cols-5">
         <div className="col-start-2 col-span-3 items-center p-4">
@@ -50,6 +38,5 @@ const Dashboard = () => {
       </div>
     );
   }
-};
 
 export default Dashboard;
