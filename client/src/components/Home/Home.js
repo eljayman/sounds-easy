@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Landing = () => {
+export function Home() {
   return (
     <div>
       <div className="grid grid-cols-5">
@@ -26,6 +26,4 @@ const Landing = () => {
       </div>
     </div>
   );
-};
-
-export default Landing;
+}

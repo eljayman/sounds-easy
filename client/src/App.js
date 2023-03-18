@@ -12,9 +12,8 @@ import { setContext } from '@apollo/client/link/context';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login';
-import Landing from './components/Landing';
+import Home from './components/Home';
 import Dashboard from './components/Dashboard';
-import Library from './components/Library';
 import Soundboard from './components/Soundboard';
 
 const httpLink = createHttpLink({
@@ -23,6 +22,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
+
   return {
     headers: {
       ...headers,
@@ -44,7 +44,7 @@ function App() {
           <Header />
           <div className="flex-grow bg-gray-900">
             <Routes>
-              <Route exact path="/" element={<Landing />} />
+              <Route exact path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/soundboard" element={<Soundboard />} />

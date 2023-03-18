@@ -22,18 +22,20 @@ function Header() {
 
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 text-white flex flex-wrap items-center text-base justify-center">
           <ul>
-            <li className="mr-5">
-              <NavLink
-                to={Auth.loggedIn() ? '/dashboard' : '/login'}
-                className={(navData) =>
-                  navData.isActive && pathMatch
-                    ? 'font-bold text-white'
-                    : 'none'
-                }
-              >
-                Dashboard
-              </NavLink>
-            </li>
+            {Auth.loggedIn() ? (
+              <li className="mr-5">
+                <NavLink
+                  to="/dashboard"
+                  className={(navData) =>
+                    navData.isActive && pathMatch
+                      ? 'font-bold text-white'
+                      : 'none'
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            ) : null}
             <li className="mr-5">
               <NavLink
                 to="/soundboard"
