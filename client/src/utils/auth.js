@@ -12,13 +12,12 @@ class AuthService {
   // return `true` or `false` if token exists (does not verify if it's expired yet)
   loggedIn() {
     const token = this.getToken();
-    return token ? true : false;
+    return token && !this.isTokenExpired(token) ? true : false;
   }
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
-    alert('You are now logged in!');
-    // window.location.replace('/dashboard');
+    window.location.replace('/dashboard');
   }
   logout() {
     // Clear user token and profile data from localStorage
