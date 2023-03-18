@@ -11,10 +11,10 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Login from './components/Login';
-import Home from './components/Home';
-import Dashboard from './components/Dashboard';
-import Soundboard from './components/Soundboard';
+import { Login } from './pages/Login';
+import { Home } from './pages/Home';
+import { Library } from './pages/Library';
+import { Soundboard } from './pages/Soundboard';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -36,7 +36,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+export function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -46,7 +46,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/library" element={<Library />} />
               <Route path="/soundboard" element={<Soundboard />} />
             </Routes>
           </div>
@@ -57,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+

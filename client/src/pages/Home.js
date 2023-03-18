@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export function Home() {
   return (
     <div>
@@ -9,11 +9,15 @@ export function Home() {
         </div>
         <div className="col-start-2 col-span-3 items-center p-2">
           <p>
-            Sounds Easy is a platform where you can listen to and add sounds to
-            your own personal soundboard library. View and listen to different
-            sounds on our soundboard, and create an easy-to-access personal
-            library for on-demand sounds! Create a profile to get started, or
-            view our sound library.
+            Sounds Easy is where you can listen to our library of sounds, and
+            add sounds to your own personal soundboard.{' '}
+            <Link to="/login" className="text-gray-100">
+              Create a profile{' '}
+            </Link>
+            to get started, or view our{' '}
+            <Link to="/library" className="text-gray-100">
+              sound library.
+            </Link>
           </p>
         </div>
       </div>

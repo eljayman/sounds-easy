@@ -25,7 +25,7 @@ function Header() {
             {Auth.loggedIn() ? (
               <li className="mr-5">
                 <NavLink
-                  to="/dashboard"
+                  to="/soundboard"
                   className={(navData) =>
                     navData.isActive && pathMatch
                       ? 'font-bold text-white'
@@ -38,7 +38,7 @@ function Header() {
             ) : null}
             <li className="mr-5">
               <NavLink
-                to="/soundboard"
+                to="/library"
                 className={(navData) =>
                   navData.isActive ? 'font-bold text-white' : 'none'
                 }
