@@ -5,7 +5,7 @@ import { ADD_SOUND_TO_BOARD } from '../../utils/mutations';
 import { QUERY_MY_SOUNDS } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
-function Sound({ _id, soundName, url, removeSound }) {
+export function Sound({ _id, soundName, url, removeSound }) {
   const [soundAdded, setSoundAdded] = useState(false);
   const [audio] = useState(new Audio(url));
   const [addSound] = useMutation(ADD_SOUND_TO_BOARD, {
@@ -76,5 +76,3 @@ function Sound({ _id, soundName, url, removeSound }) {
     </li>
   );
 }
-
-export default Sound;

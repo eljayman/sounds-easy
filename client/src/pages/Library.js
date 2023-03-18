@@ -1,9 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL_SOUNDS } from '../../utils/queries';
-import Sound from '../Sound';
+import { QUERY_ALL_SOUNDS } from '../utils/queries';
+import { Sound } from '../components/Sound/Sound';
 
-function Soundboard() {
+export function Library() {
   const { loading, data } = useQuery(QUERY_ALL_SOUNDS);
   const allSounds = data?.sounds || [];
 
@@ -27,5 +27,3 @@ function Soundboard() {
     </div>
   );
 }
-
-export default Soundboard;

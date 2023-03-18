@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-// import { Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_USER, USER_LOGIN } from '../../utils/mutations';
-import Auth from '../../utils/auth.js';
+import { ADD_USER, USER_LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth.js';
 
-const Login = () => {
+export function Login() {
   const [userLogin] = useMutation(USER_LOGIN);
   const [addUser] = useMutation(ADD_USER);
 
@@ -188,6 +187,4 @@ const Login = () => {
       </div>
     </div>
   );
-};
-
-export default Login;
+}

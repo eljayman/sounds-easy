@@ -17,7 +17,7 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
-    window.location.replace('/dashboard');
+    window.location.replace('/soundboard');
   }
   logout() {
     // Clear user token and profile data from localStorage
