@@ -10,7 +10,7 @@ export function Library() {
   return (
     <div className="soundboard grid grid-cols-5">
       <div className="col-start-2 col-span-3 items-center p-4">
-        <h1 className="text-center text-4xl">Soundboard</h1>
+        <h1 className="text-center text-4xl">Sound Library</h1>
       </div>
       {loading ? (
         <h3 className="col-start-2 col-span-3 items-center p-4">Loading...</h3>
