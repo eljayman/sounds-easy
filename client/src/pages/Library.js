@@ -12,18 +12,22 @@ export function Library() {
       <div className="col-start-2 col-span-3 items-center p-4">
         <h1 className="text-center text-4xl">Soundboard</h1>
       </div>
-      <div className="col-start-2 col-span-3 items-center p-2">
-        <ul style={{ listStyleType: 'none' }}>
-          {allSounds.map((data) => (
-            <Sound
-              key={data._id}
-              _id={data._id}
-              url={data.url}
-              soundName={data.soundName}
-            />
-          ))}
-        </ul>
-      </div>
+      {loading ? (
+        <h3 className="col-start-2 col-span-3 items-center p-4">Loading...</h3>
+      ) : (
+        <div className="col-start-2 col-span-3 items-center p-2">
+          <ul style={{ listStyleType: 'none' }}>
+            {allSounds.map((data) => (
+              <Sound
+                key={data._id}
+                _id={data._id}
+                url={data.url}
+                soundName={data.soundName}
+              />
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

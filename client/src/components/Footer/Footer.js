@@ -1,4 +1,6 @@
-function Footer() {
+import React from 'react';
+
+export function Footer() {
   return (
     <footer className="bg-gray-800 fixed bottom-0 z-10 w-full">
       <div className="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center ">
@@ -23,5 +25,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

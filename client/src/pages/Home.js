@@ -11,12 +11,16 @@ export function Home() {
           <p>
             Sounds Easy is where you can listen to our library of sounds, and
             add sounds to your own personal soundboard.{' '}
-            <Link to="/login" className="text-gray-100">
+            <Link to="/sign-in" className="text-gray-100">
               Create a profile{' '}
             </Link>
             to get started, or view our{' '}
             <Link to="/library" className="text-gray-100">
               sound library.
+            </Link>{' '}
+            If you're already registered you can{' '}
+            <Link to="/sign-in" className="text-gray-100">
+              sign-in here.{' '}
             </Link>
           </p>
         </div>

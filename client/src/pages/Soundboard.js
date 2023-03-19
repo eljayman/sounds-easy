@@ -17,24 +17,36 @@ export function Soundboard() {
   return (
     <div className="soundboard grid grid-cols-5">
       <div className="col-start-2 col-span-3 items-center p-4">
-        <h1 className="text-center text-4xl">{me.username}'s Soundboard</h1>
+        {waiting ? (
+          <h3 className="col-start-2 col-span-3 items-center p-4">
+            Waiting...
+          </h3>
+        ) : (
+          <h1 className="text-center text-4xl">{me.username}'s Soundboard</h1>
+        )}
       </div>
-      <div className="col-start-2 col-span-3 items-center p-4">
-        <h2 className="text-center text-3xl">My Sounds:</h2>
-      </div>
-      <div className="col-start-2 col-span-3 items-center p-2">
-        <ul style={{ listStyleType: 'none' }}>
-          {mySounds.map((data) => (
-            <Sound
-              key={data._id}
-              _id={data._id}
-              url={data.url}
-              soundName={data.soundName}
-              removeSound={removeSound}
-            />
-          ))}
-        </ul>
-      </div>
+      {loading ? (
+        <h3 className="col-start-2 col-span-3 items-center p-4">Loading...</h3>
+      ) : (
+        <>
+          <div className="col-start-2 col-span-3 items-center p-4">
+            <h2 className="text-center text-3xl">My Sounds:</h2>
+          </div>
+          <div className="col-start-2 col-span-3 items-center p-2">
+            <ul style={{ listStyleType: 'none' }}>
+              {mySounds.map((data) => (
+                <Sound
+                  key={data._id}
+                  _id={data._id}
+                  url={data.url}
+                  soundName={data.soundName}
+                  removeSound={removeSound}
+                />
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
     </div>
   );
 }

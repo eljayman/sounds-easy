@@ -9,9 +9,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import { Login } from './pages/Login';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { SignIn } from './pages/SignIn';
 import { Home } from './pages/Home';
 import { Library } from './pages/Library';
 import { Soundboard } from './pages/Soundboard';
@@ -45,7 +45,7 @@ export function App() {
           <div className="flex-grow bg-gray-900">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/sign-in" element={<SignIn />} />
               <Route path="/library" element={<Library />} />
               <Route path="/soundboard" element={<Soundboard />} />
             </Routes>
@@ -56,5 +56,3 @@ export function App() {
     </ApolloProvider>
   );
 }
-
-

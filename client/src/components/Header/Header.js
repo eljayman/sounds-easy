@@ -3,8 +3,8 @@ import { NavLink, Link, useMatch } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import './Header.css';
 
-function Header() {
-  const pathMatch = useMatch('/dashboard');
+export function Header() {
+  const pathMatch = useMatch('/soundboard');
   return (
     <header className="bg-gray-800 md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -32,7 +32,7 @@ function Header() {
                       : 'none'
                   }
                 >
-                  Dashboard
+                  My Soundboard
                 </NavLink>
               </li>
             ) : null}
@@ -65,7 +65,7 @@ function Header() {
           ) : (
             <li className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
               <NavLink
-                to="/login"
+                to="/sign-in"
                 className={(navData) =>
                   navData.isActive ? 'font-bold text-white' : 'none'
                 }
@@ -79,5 +79,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
