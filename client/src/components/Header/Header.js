@@ -4,7 +4,7 @@ import Auth from '../../utils/auth';
 import './Header.css';
 
 export function Header() {
-  const pathMatch = useMatch('/dashboard');
+  const pathMatch = useMatch('/soundboard');
   return (
     <header className="bg-gray-800 md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -32,7 +32,7 @@ export function Header() {
                       : 'none'
                   }
                 >
-                  Dashboard
+                  My Soundboard
                 </NavLink>
               </li>
             ) : null}
@@ -79,5 +79,3 @@ export function Header() {
     </header>
   );
 }
-
-
