@@ -29,9 +29,7 @@ export function Soundboard() {
         <h3 className="col-start-2 col-span-3 items-center p-4">Loading...</h3>
       ) : (
         <>
-          <div className="col-start-2 col-span-3 items-center p-4">
-            <h2 className="text-center text-3xl">My Sounds:</h2>
-          </div>
+          <div className="col-start-2 col-span-3 items-center p-4"></div>
           <div className="col-start-2 col-span-3 items-center p-2">
             <ul style={{ listStyleType: 'none' }}>
               {mySounds.map((data) => (
