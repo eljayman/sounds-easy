@@ -6,27 +6,25 @@ import { Sound } from '../components/Sound/Sound';
 export function Library() {
   const { loading, data } = useQuery(QUERY_ALL_SOUNDS);
   const allSounds = data?.sounds || [];
-
+  const soundComponents = allSounds.map((data) => (
+    <Sound
+      key={data._id}
+      _id={data._id}
+      url={data.url}
+      soundName={data.soundName}
+    />
+  ));
   return (
-    <div className="soundboard grid grid-cols-5">
+    <div className="grid grid-cols-5 pb-16">
       <div className="col-start-2 col-span-3 items-center p-4">
         <h1 className="text-center text-4xl">Sound Library</h1>
       </div>
       {loading ? (
         <h3 className="col-start-2 col-span-3 items-center p-4">Loading...</h3>
       ) : (
-        <div className="col-start-2 col-span-3 items-center p-2">
-          <ul style={{ listStyleType: 'none' }}>
-            {allSounds.map((data) => (
-              <Sound
-                key={data._id}
-                _id={data._id}
-                url={data.url}
-                soundName={data.soundName}
-              />
-            ))}
-          </ul>
-        </div>
+        <ul className="col-start-2 col-span-3 w-full flex items-center flex-row  flex-wrap  justify-center">
+          {soundComponents}
+        </ul>
       )}
     </div>
   );

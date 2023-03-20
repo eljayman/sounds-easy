@@ -13,9 +13,18 @@ export function Soundboard() {
   });
   const { loading, data: soundData } = useQuery(QUERY_MY_SOUNDS);
   const mySounds = soundData?.mySounds || [];
+  const soundComponents = mySounds.map((data) => (
+    <Sound
+      key={data._id}
+      _id={data._id}
+      url={data.url}
+      soundName={data.soundName}
+      removeSound={removeSound}
+    />
+  ));
 
   return (
-    <div className="soundboard grid grid-cols-5">
+    <div className="pb-16 grid grid-cols-5">
       <div className="col-start-2 col-span-3 items-center p-4">
         {waiting ? (
           <h3 className="col-start-2 col-span-3 items-center p-4">
@@ -28,22 +37,9 @@ export function Soundboard() {
       {loading ? (
         <h3 className="col-start-2 col-span-3 items-center p-4">Loading...</h3>
       ) : (
-        <>
-          <div className="col-start-2 col-span-3 items-center p-4"></div>
-          <div className="col-start-2 col-span-3 items-center p-2">
-            <ul style={{ listStyleType: 'none' }}>
-              {mySounds.map((data) => (
-                <Sound
-                  key={data._id}
-                  _id={data._id}
-                  url={data.url}
-                  soundName={data.soundName}
-                  removeSound={removeSound}
-                />
-              ))}
-            </ul>
-          </div>
-        </>
+        <ul className="col-start-2 col-span-3 w-full flex items-center flex-row  flex-wrap  justify-center">
+          {soundComponents}
+        </ul>
       )}
     </div>
   );

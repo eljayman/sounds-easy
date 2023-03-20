@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
@@ -40,7 +40,7 @@ export function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <main className="text-gray-400 bg-gray-900 body-font h-screen justify-between">
+        <main className="text-gray-400 bg-gray-900 body-font lg: h-screen justify-between">
           <Header />
           <div className="flex-grow bg-gray-900">
             <Routes>
