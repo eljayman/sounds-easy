@@ -76,6 +76,178 @@
     "url": "https://actions.google.com/sounds/v1/cartoon/vomiting_close.ogg"
   },
   {
+    "soundName": "Buzzing Fly",
+    "url": "https://actions.google.com/sounds/v1/animals/buzzing_fly.ogg"
+  },
+  {
+    "soundName": "Tentacle Flop Down",
+    "url": "https://actions.google.com/sounds/v1/cartoon/cartoon_cowbell.ogg"
+  },
+  {
+    "soundName": "Cartoon Cowbell",
+    "url": "https://actions.google.com/sounds/v1/animals/tentacle_flop_down.ogg"
+  },
+  {
+    "soundName": "Concussive Hit Guitar Boing",
+    "url": "https://actions.google.com/sounds/v1/cartoon/concussive_hit_guitar_boing.ogg"
+  },
+  {
+    "soundName": "Deflate",
+    "url": "https://actions.google.com/sounds/v1/cartoon/deflate.ogg"
+  },
+  {
+    "soundName": "Pop",
+    "url": "https://actions.google.com/sounds/v1/cartoon/pop.ogg"
+  },
+  {
+    "soundName": "Siren Whistle",
+    "url": "https://actions.google.com/sounds/v1/cartoon/siren_whistle.ogg"
+  },
+  {
+    "soundName": "Slide Whistle",
+    "url": "https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg"
+  },
+  {
+    "soundName": "Slapping Three Faces",
+    "url": "https://actions.google.com/sounds/v1/cartoon/slapping_three_faces.ogg"
+  },
+  {
+    "soundName": "Wood Plank Flicks",
+    "url": "https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"
+  },
+  {
+    "soundName": "Woodpecker",
+    "url": "https://actions.google.com/sounds/v1/cartoon/woodpecker.ogg"
+  },
+  {
+    "soundName": "Deadbolt Lock",
+    "url": "https://actions.google.com/sounds/v1/doors/deadbolt_lock.ogg"
+  },
+  {
+    "soundName": "Locked Doorknob Jiggle",
+    "url": "https://actions.google.com/sounds/v1/doors/locked_doorknob_jiggle.ogg"
+  },
+  {
+    "soundName": "Screen Door Close",
+    "url": "https://actions.google.com/sounds/v1/doors/screen_door_close.ogg"
+  },
+  {
+    "soundName": "Wood Door - Open/Close Soft",
+    "url": "https://actions.google.com/sounds/v1/doors/wood_door_open_close_soft.ogg"
+  },
+  {
+    "soundName": "Emergency Siren Short Burst",
+    "url": "https://actions.google.com/sounds/v1/emergency/emergency_siren_short_burst.ogg"
+  },
+  {
+    "soundName": "Wood Rattle",
+    "url": "https://actions.google.com/sounds/v1/doors/wood_rattle.ogg"
+  },
+  {
+    "soundName": "Aluminum Can Open",
+    "url": "https://actions.google.com/sounds/v1/foley/aluminum_can_open.ogg"
+  },
+  {
+    "soundName": "Change Drop on Wood",
+    "url": "https://actions.google.com/sounds/v1/foley/change_drop_on_wood.ogg"
+  },
+  {
+    "soundName": "Dress Shoe Run on Gravel",
+    "url": "https://actions.google.com/sounds/v1/foley/dress_shoe_run_on_gravel.ogg"
+  },
+  {
+    "soundName": "Karate hit",
+    "url": "https://actions.google.com/sounds/v1/foley/karate_hit.ogg"
+  },
+  {
+    "soundName": "Knife Sharpen",
+    "url": "https://actions.google.com/sounds/v1/foley/knife_sharpen.ogg"
+  },
+  {
+    "soundName": "Paper Ripping",
+    "url": "https://actions.google.com/sounds/v1/foley/paper_ripping.ogg"
+  },
+  {
+    "soundName": "Rake Swing Whoosh Close",
+    "url": "https://actions.google.com/sounds/v1/foley/rake_swing_whoosh_close.ogg"
+  },
+  {
+    "soundName": "Monster Alien Grunt",
+    "url": "https://actions.google.com/sounds/v1/horror/monster_alien_grunt.ogg"
+  },
+  {
+    "soundName": "Synthetic Insects",
+    "url": "https://actions.google.com/sounds/v1/horror/synthetic_insects.ogg"
+  },
+  {
+    "soundName": "Bowl spin",
+    "url": "https://actions.google.com/sounds/v1/household/bowl_spin.ogg"
+  },
+  {
+    "soundName": "Clock Ticking",
+    "url": "https://actions.google.com/sounds/v1/household/clock_ticking.ogg"
+  },
+  {
+    "soundName": "Phone Ringing",
+    "url": "https://actions.google.com/sounds/v1/household/phone_ringing.ogg"
+  },
+  {
+    "soundName": "Human Fart",
+    "url": "https://actions.google.com/sounds/v1/human_voices/human_fart.ogg"
+  },
+  {
+    "soundName": "Crash",
+    "url": "https://actions.google.com/sounds/v1/impacts/crash.ogg"
+  },
+  {
+    "soundName": "Debris Hits",
+    "url": "https://actions.google.com/sounds/v1/impacts/debris_hits.ogg"
+  },
+  {
+    "soundName": "Glass Shatters Into Debris",
+    "url": "https://actions.google.com/sounds/v1/impacts/glass_shatters_into_debris.ogg"
+  },
+  {
+    "soundName": "Junk Crash",
+    "url": "https://actions.google.com/sounds/v1/impacts/junk_crash.ogg"
+  },
+  {
+    "soundName": "Small Glass Pane Shatter",
+    "url": "https://actions.google.com/sounds/v1/impacts/small_glass_pane_shatter.ogg"
+  },
+  {
+    "soundName": "Bowling Gutter Ball",
+    "url": "https://actions.google.com/sounds/v1/sports/bowling_gutter_ball.ogg"
+  },
+  {
+    "soundName": "Bowling Strike",
+    "url": "https://actions.google.com/sounds/v1/sports/bowling_strike.ogg"
+  },
+  {
+    "soundName": "Iron Club Hits Golf Ball",
+    "url": "https://actions.google.com/sounds/v1/sports/iron_club_hits_golf_ball.ogg"
+  },
+  {
+    "soundName": "Wood Golf Club Hit Ball",
+    "url": "https://actions.google.com/sounds/v1/sports/wood_golf_club_hit_ball.ogg"
+  },
+  {
+    "soundName": "Basketball Bounce and Roll",
+    "url": "https://actions.google.com/sounds/v1/sports/basketball_bounce_and_roll.ogg"
+  },
+  {
+    "soundName": "Doppler Passing By Stationary",
+    "url": "https://actions.google.com/sounds/v1/transportation/doppler_passing_by_stationary.ogg"
+  },
+  {
+    "soundName": "Pour Into Metal Bucket",
+    "url": "https://actions.google.com/sounds/v1/water/pour_into_metal_bucket.ogg"
+  },
+  {
+    "soundName": "Lit Fuse",
+    "url": "https://actions.google.com/sounds/v1/weapons/lit_fuse.ogg"
+  },
+  {
     "soundName": "Wet Fart",
     "url": "https://actions.google.com/sounds/v1/cartoon/wet_fart.ogg"
   }
