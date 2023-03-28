@@ -1,5 +1,5 @@
 import React from 'react';
-
+import linkedInIcon from '../../assets/images/linkedinicon.png';
 export function Footer() {
   return (
     <footer className="bg-gray-800 md:fixed bottom-0 z-10 w-full">
@@ -13,12 +13,11 @@ export function Footer() {
               width="40"
             />
           </a>
-          <a className="px-4" href="https://twitter.com/JoeBiden?s=20">
-            <img
-              src="https://user-images.githubusercontent.com/113566829/223120327-fe1687d3-70f3-440f-b18b-d3b5801059d4.png"
-              alt="Twitter logo"
-              width="35"
-            />
+          <a
+            className="px-4"
+            href="https://www.linkedin.com/in/leland-c-johnson/"
+          >
+            <img src={linkedInIcon} alt="LinkedIn Icon" width="35" />
           </a>
         </div>
       </div>
